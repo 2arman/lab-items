@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  undertow:
+    threads:
+      io: ${SERVER_UNDERTOW_THREADS_IO:400}
+      worker: ${SERVER_UNDERTOW_THREADS_WORKER:4000}
+
+logging:
+  level:
+    root: INFO
+
+spring:
+  application:
+    name: lab-items
+  profiles:
+    active: ${SPRING_ACTIVE_PROFILE:dev}
+    include:
+      - swagger
+
