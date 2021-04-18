@@ -12,6 +12,20 @@ logging:
 spring:
   application:
     name: lab-items
+  datasource:
+    url: ${DB_HOST:jdbc:h2:mem:lab_db}
+    driver-class-name: org.h2.Driver
+    username: ${DB_USER:sa}
+    password: ${DB_USER:password}
+  h2:
+    console:
+      enabled: true
+  ٰjpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+    open-in-view: false
   profiles:
     active: ${SPRING_ACTIVE_PROFILE:dev}
     include:
