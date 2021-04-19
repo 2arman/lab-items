@@ -22,7 +22,7 @@ spring:
       enabled: true
   ٰjpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: false
     open-in-view: false
