@@ -9,7 +9,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
  * Date: 4/5/21
  * Time: 12:19 AM
  **/
-@ResponseStatus(value = NOT_FOUND, reason = "Attribute not found the item.")
+@ResponseStatus(value = NOT_FOUND, reason = "Attribute not found on the category.")
 public class AttributeNotFoundException extends RuntimeException {
     public AttributeNotFoundException(String message) {
         super(message);

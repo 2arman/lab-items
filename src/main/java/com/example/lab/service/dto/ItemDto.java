@@ -1,8 +1,9 @@
 package com.example.lab.service.dto;
 
-import com.example.lab.service.dto.base.BaseIdentityDto;
+import com.example.lab.service.dto.base.IdentityBaseDto;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -16,12 +17,12 @@ import java.util.Map;
  * Time: 7:16 PM
  **/
 @EqualsAndHashCode(callSuper = true)
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ApiModel("Item")
-public class ItemDto extends BaseIdentityDto {
+public class ItemDto extends IdentityBaseDto {
 
     @NotNull(message = "category Id is mandatory")
     private Long categoryId;
@@ -31,5 +32,5 @@ public class ItemDto extends BaseIdentityDto {
     private String name;
 
     @Size(min = 1)
-    Map<Integer,Object> attributeValues;
+    Map<Integer,String> attributeValues;
 }

@@ -14,6 +14,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class BaseListResponseDto {
+public abstract class ListBaseResponseDto {
     private long total;
 }

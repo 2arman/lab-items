@@ -14,6 +14,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class BaseIdentityDto {
+public abstract class IdentityBaseDto {
     private Long id;
 }

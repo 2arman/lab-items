@@ -2,7 +2,6 @@ package com.example.lab.service;
 
 import com.example.lab.service.dto.CategoriesDto;
 import com.example.lab.service.dto.CategoryDto;
-import com.example.lab.service.dto.PageableDto;
 
 /**
  * @author Arman
@@ -15,5 +14,5 @@ public interface CategoryService {
 
     CategoryDto getById(Long categoryId);
 
-    CategoriesDto getAll(PageableDto pageableDto);
+    CategoriesDto getAll();
 }

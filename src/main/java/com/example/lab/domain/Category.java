@@ -1,12 +1,12 @@
 package com.example.lab.domain;
 
 import com.example.lab.domain.base.BaseEntity;
+import com.example.lab.service.dto.ItemsDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -23,4 +23,10 @@ import javax.persistence.Table;
 public class Category extends BaseEntity {
     @Column(name = "category_name")
     private String name;
+
+    @Column(name = "category_description")
+    private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "category")
+    private List<CategoryAttribute> attributes;
 }

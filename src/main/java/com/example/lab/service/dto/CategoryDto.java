@@ -1,8 +1,9 @@
 package com.example.lab.service.dto;
 
-import com.example.lab.service.dto.base.BaseIdentityDto;
+import com.example.lab.service.dto.base.IdentityBaseDto;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -16,12 +17,12 @@ import java.util.List;
  * Time: 4:53 PM
  **/
 @EqualsAndHashCode(callSuper = true)
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ApiModel("Category Dto for Lab")
-public class CategoryDto extends BaseIdentityDto {
+public class CategoryDto extends IdentityBaseDto {
 
 
     @NotEmpty(message = "name is required.")

@@ -1,7 +1,10 @@
 package com.example.lab.repository;
 
 import com.example.lab.domain.Category;
+import com.example.lab.domain.Item;
 import com.example.lab.repository.base.SimpleRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 /**

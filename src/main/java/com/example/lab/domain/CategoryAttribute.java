@@ -29,4 +29,9 @@ public class CategoryAttribute extends BaseEntity {
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
     private AttributeType attributeType;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_attribute_category"))
+    private Category category;
+
 }

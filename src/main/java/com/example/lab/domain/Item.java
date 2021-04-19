@@ -27,8 +27,8 @@ public class Item extends BaseEntity {
     @Column(name = "item_name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_user_venture__user"))
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_item_category"))
     private Category category;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "item")

@@ -6,5 +6,8 @@ package com.example.lab.domain.enumeration;
  * Time: 9:40 AM
  **/
 public enum AttributeType {
-    TEXT,INTEGER,EMAIL,CUSTOM
+    TEXT,
+    NUMBER,
+    DOUBLE,
+    BINARY,
 }
