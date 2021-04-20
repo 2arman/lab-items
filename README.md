@@ -29,9 +29,9 @@ This implementation used `java 11` , `Maven` , `Spring boot` , `Mockito` , `Juni
 used `Undertow` as and embedded web server,
 , `docker/docker-compose` for easier deployment and running.
 
-also used of `H2` as in-memory database [we use that for simplicity]. (it can be replaced by a relational database like `MySql` well)
+also used of `H2` as in-memory database [I used that for simplicity]. (it can be replaced by a relational database like `MySql` well)
 
-for API Documentation and manual testing we use the `Swagger` that can easily export and import to `Postman` collections.  
+for API Documentation and manual testing used the `Swagger` that can easily export and import to `Postman` collections.  
 #### Domain
 Our main domains are **Item** , **Category** and **Attribute**
 
