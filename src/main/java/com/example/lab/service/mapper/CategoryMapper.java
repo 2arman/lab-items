@@ -22,6 +22,13 @@ public interface CategoryMapper {
                 .build();
     }
 
+    default Category mapTwoWayRelationship(CategoryDto categoryDto) {
+        var category = map(categoryDto);
+        category.getAttributes()
+                .forEach(categoryAttribute -> categoryAttribute.setCategory(category));
+        return category;
+    }
+
     List<CategoryDto> map(List<Category> categories);
 
     Category map(CategoryDto categoryDto);

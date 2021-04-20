@@ -9,6 +9,7 @@ import com.example.lab.service.mapper.CategoryMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Arman
@@ -18,13 +19,14 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
 
     @Override
     public CategoryDto create(CategoryDto categoryDto) {
-        return categoryMapper.map(categoryRepository.save(categoryMapper.map(categoryDto)));
+        return categoryMapper.map(categoryRepository.save(categoryMapper.mapTwoWayRelationship(categoryDto)));
     }
 
     @Override

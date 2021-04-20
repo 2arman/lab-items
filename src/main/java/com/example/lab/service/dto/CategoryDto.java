@@ -21,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@ApiModel("Category Dto for Lab")
+@ApiModel("Category Dto")
 public class CategoryDto extends IdentityBaseDto {
 
 

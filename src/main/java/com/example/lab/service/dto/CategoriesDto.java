@@ -1,5 +1,6 @@
 package com.example.lab.service.dto;
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel("Categories Dto")
 public class CategoriesDto{
     private List<CategoryDto> categories;
 }

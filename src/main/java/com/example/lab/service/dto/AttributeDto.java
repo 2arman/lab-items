@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel("Attribute Dto for Category")
+@ApiModel("Attribute Dto")
 public class AttributeDto  extends IdentityBaseDto {
 
     @NotEmpty

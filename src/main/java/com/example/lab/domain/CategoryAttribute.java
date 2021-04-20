@@ -30,7 +30,7 @@ public class CategoryAttribute extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private AttributeType attributeType;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_attribute_category"))
     private Category category;
 

@@ -25,7 +25,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api/v1/categories", produces = "application/json")
 @Api("The Lab Categories API")
 public class CategoryResource {
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @GetMapping
     @ApiOperation("Getting All Categories by pagination")

@@ -21,7 +21,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@ApiModel("Item")
+@ApiModel("Item Dto")
 public class ItemDto extends IdentityBaseDto {
 
     @NotNull(message = "category Id is mandatory")

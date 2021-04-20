@@ -63,7 +63,7 @@ class CreateCategoryServiceTest {
         given(category.getAttributes()).willReturn(categoryDomainAttributes);
         given(category.getId()).willReturn(1L);
 
-        given(categoryMapper.map(any(CategoryDto.class))).willReturn(category);
+        given(categoryMapper.mapTwoWayRelationship(any(CategoryDto.class))).willReturn(category);
         given(categoryRepository.save(any(Category.class))).willReturn(category);
 
         given(categoryMapper.map(any(Category.class))).willReturn(categoryResponseDto);
@@ -77,7 +77,7 @@ class CreateCategoryServiceTest {
         Assert.assertNotNull(actualCategoryResponseDto.getId());
         Assert.assertEquals(Long.valueOf(1), actualCategoryResponseDto.getId());
 
-        then(categoryMapper).should().map(categoryDto);
+        then(categoryMapper).should().mapTwoWayRelationship(categoryDto);
         then(categoryRepository).should(only()).save(category);
         then(categoryMapper).should().map(category);
     }
@@ -120,7 +120,7 @@ class CreateCategoryServiceTest {
         given(category.getAttributes()).willReturn(categoryDomainAttributes);
         given(category.getId()).willReturn(1L);
 
-        given(categoryMapper.map(any(CategoryDto.class))).willReturn(category);
+        given(categoryMapper.mapTwoWayRelationship(any(CategoryDto.class))).willReturn(category);
         given(categoryRepository.save(any(Category.class))).willReturn(category);
 
         given(categoryMapper.map(any(Category.class))).willReturn(categoryResponseDto);
@@ -134,7 +134,7 @@ class CreateCategoryServiceTest {
         Assert.assertNotNull(actualCategoryResponseDto.getId());
         Assert.assertEquals(Long.valueOf(1), actualCategoryResponseDto.getId());
 
-        then(categoryMapper).should().map(categoryDto);
+        then(categoryMapper).should().mapTwoWayRelationship(categoryDto);
         then(categoryRepository).should(only()).save(category);
         then(categoryMapper).should().map(category);
     }
@@ -186,7 +186,7 @@ class CreateCategoryServiceTest {
         given(category.getAttributes()).willReturn(categoryDomainAttributes);
         given(category.getId()).willReturn(1L);
 
-        given(categoryMapper.map(any(CategoryDto.class))).willReturn(category);
+        given(categoryMapper.mapTwoWayRelationship(any(CategoryDto.class))).willReturn(category);
         given(categoryRepository.save(any(Category.class))).willReturn(category);
         given(categoryMapper.map(any(Category.class))).willReturn(categoryResponseDto);
 
@@ -198,7 +198,7 @@ class CreateCategoryServiceTest {
         Assert.assertNotNull(actualCategoryResponseDto.getId());
         Assert.assertEquals(Long.valueOf(1), actualCategoryResponseDto.getId());
 
-        then(categoryMapper).should().map(categoryDto);
+        then(categoryMapper).should().mapTwoWayRelationship(categoryDto);
         then(categoryRepository).should(only()).save(category);
         then(categoryMapper).should().map(category);
     }

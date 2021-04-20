@@ -1,8 +1,9 @@
 package com.example.lab.domain;
 
 import com.example.lab.domain.base.BaseEntity;
-import com.example.lab.service.dto.ItemsDto;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
@@ -27,6 +28,6 @@ public class Category extends BaseEntity {
     @Column(name = "category_description")
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "category", fetch = FetchType.EAGER)
     private List<CategoryAttribute> attributes;
 }
