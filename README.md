@@ -24,10 +24,12 @@ up with your own solution. Keep in mind that we do not expect any UI development
 this is a pure backend task.   
         
 ### Design
-This implementation uses `java 11` , `Maven` , `Spring boot` , `Mockito` , `Junit 5` , `MapStruct`
+This implementation used `java 11` , `Maven` , `Spring boot` , `Mockito` , `Junit 5` , `MapStruct` , `JPA`
 
-also,we use `Undertow` as and embedded web server,
-and `docker/docker-compose` for easier deployment and running.
+used `Undertow` as and embedded web server,
+, `docker/docker-compose` for easier deployment and running.
+
+also used of `H2` as in-memory database [we use that for simplicity]. (it can be replaced by a relational database like `MySql` well)
 
 for API Documentation and manual testing we use the `Swagger` that can easily export and import to `Postman` collections.  
 #### Domain
@@ -63,7 +65,7 @@ Here are some improvements suggestion that
 - Implementing API and Integration Tests.
 - Adding Spring security for adding the Authentication and Authorization.
 - Using a consistent Database such as MySQL/Postgres for storing items.
-- Adding an interceptor for logging Request/Response.
+- Adding an Logging Interceptor for logging Request/Response.
 - Adding a ControllerAdvice for better exception handling and return responses.
 
 ##  Build / Run
