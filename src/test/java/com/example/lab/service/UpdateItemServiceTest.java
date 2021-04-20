@@ -3,7 +3,7 @@ package com.example.lab.service;
 import com.example.lab.domain.Category;
 import com.example.lab.domain.CategoryAttribute;
 import com.example.lab.domain.Item;
-import com.example.lab.domain.ItemAttributesValue;
+import com.example.lab.domain.ItemAttributeValue;
 import com.example.lab.repository.CategoryRepository;
 import com.example.lab.repository.ItemRepository;
 import com.example.lab.service.dto.AttributeDto;
@@ -85,9 +85,9 @@ class UpdateItemServiceTest {
 
         var item = mock(Item.class);
         given(item.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         final var attributeValues = Collections.singletonMap(100L, attributeValue);
         ItemDto itemDto = ItemDto.builder()
@@ -97,8 +97,8 @@ class UpdateItemServiceTest {
                 .attributeValues(attributeValues)
                 .build();
 
-        given(itemMapper.map(any(ItemDto.class))).willReturn(item);
         given(itemRepository.findById(itemId)).willReturn(Optional.of(item));
+        given(itemMapper.mapAttachedEntity(itemDto, item, category)).willReturn(item);
         given(itemRepository.save(any(Item.class))).willReturn(item);
 
         given(categoryRepository.findById(categoryId)).willReturn(Optional.of(category));
@@ -108,7 +108,7 @@ class UpdateItemServiceTest {
 
         then(categoryRepository).should().findById(categoryId);
         then(itemRepository).should().findById(itemId);
-        then(itemMapper).should().map(itemDto);
+        then(itemMapper).should().mapAttachedEntity(itemDto, item, category);
         then(itemRepository).should().save(item);
         then(attributeValidator).should(only()).validate(categoryDomainAttributes, attributeValues);
     }
@@ -140,9 +140,9 @@ class UpdateItemServiceTest {
 
         var item = mock(Item.class);
         given(item.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         ItemDto itemDto = ItemDto.builder()
                 .id(itemId)
@@ -151,7 +151,7 @@ class UpdateItemServiceTest {
                 .attributeValues(new HashMap<>())
                 .build();
 
-        given(itemMapper.map(any(ItemDto.class))).willReturn(item);
+        given(itemMapper.mapAttachedEntity(itemDto, item, category)).willReturn(item);
         given(itemRepository.findById(itemId)).willReturn(Optional.of(item));
         given(itemRepository.save(any(Item.class))).willReturn(item);
 
@@ -187,9 +187,9 @@ class UpdateItemServiceTest {
 
         var item = mock(Item.class);
         given(item.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         ItemDto itemDto = ItemDto.builder()
                 .id(itemId)
@@ -198,7 +198,7 @@ class UpdateItemServiceTest {
                 .attributeValues(new HashMap<>())
                 .build();
 
-        given(itemMapper.map(any(ItemDto.class))).willReturn(item);
+        given(itemMapper.mapAttachedEntity(itemDto, item, category)).willReturn(item);
         given(itemRepository.findById(1001L)).willReturn(Optional.of(item));
         given(itemRepository.save(any(Item.class))).willReturn(item);
 

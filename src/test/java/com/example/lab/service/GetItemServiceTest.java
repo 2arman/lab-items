@@ -3,7 +3,7 @@ package com.example.lab.service;
 import com.example.lab.domain.Category;
 import com.example.lab.domain.CategoryAttribute;
 import com.example.lab.domain.Item;
-import com.example.lab.domain.ItemAttributesValue;
+import com.example.lab.domain.ItemAttributeValue;
 import com.example.lab.repository.CategoryRepository;
 import com.example.lab.repository.ItemRepository;
 import com.example.lab.service.dto.*;
@@ -77,9 +77,9 @@ class GetItemServiceTest {
 
         var item = mock(Item.class);
         given(item.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         final var attributeValues = new HashMap<Long, String>();
         ItemDto itemDto = ItemDto.builder()
@@ -95,7 +95,7 @@ class GetItemServiceTest {
                 .attributeValues(attributeValues)
                 .build();
 
-        given(itemMapper.map(any(Item.class))).willReturn(itemResponseDto);
+        given(itemMapper.mapDto(any(Item.class))).willReturn(itemResponseDto);
         given(itemRepository.findById(itemId)).willReturn(Optional.of(item));
 
         final var actualItemResponseDto = itemService.getById(itemId);
@@ -107,7 +107,7 @@ class GetItemServiceTest {
         Assert.assertEquals(Long.valueOf(itemId), actualItemResponseDto.getId());
 
         then(itemRepository).should().findById(itemId);
-        then(itemMapper).should().map(item);
+        then(itemMapper).should().mapDto(item);
     }
 
     @Test
@@ -137,9 +137,9 @@ class GetItemServiceTest {
 
         var item = mock(Item.class);
         given(item.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         final var attributeValues = new HashMap<Long, String>();
         ItemDto itemDto = ItemDto.builder()
@@ -199,17 +199,17 @@ class GetItemServiceTest {
 
         var item1 = mock(Item.class);
         given(item1.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item1.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item1.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         final var attributeValues = Collections.singletonMap(100L, attributeValue);
 
         var item2 = mock(Item.class);
         given(item1.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue2 = mock(ItemAttributesValue.class);
-        given(itemAttributesValue2.getValue()).willReturn(attributeValue2);
-        given(item2.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue2));
+        ItemAttributeValue itemAttributeValue2 = mock(ItemAttributeValue.class);
+        given(itemAttributeValue2.getValue()).willReturn(attributeValue2);
+        given(item2.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue2));
 
         final var attributeValues2 = Collections.singletonMap(100L, attributeValue2);
 
@@ -290,17 +290,17 @@ class GetItemServiceTest {
 
         var item1 = mock(Item.class);
         given(item1.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue = mock(ItemAttributesValue.class);
-        given(itemAttributesValue.getValue()).willReturn(attributeValue);
-        given(item1.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue));
+        ItemAttributeValue itemAttributeValue = mock(ItemAttributeValue.class);
+        given(itemAttributeValue.getValue()).willReturn(attributeValue);
+        given(item1.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue));
 
         final var attributeValues = Collections.singletonMap(100L, attributeValue);
 
         var item2 = mock(Item.class);
         given(item1.getName()).willReturn(itemName);
-        ItemAttributesValue itemAttributesValue2 = mock(ItemAttributesValue.class);
-        given(itemAttributesValue2.getValue()).willReturn(attributeValue2);
-        given(item2.getAttributesValues()).willReturn(Collections.singletonList(itemAttributesValue2));
+        ItemAttributeValue itemAttributeValue2 = mock(ItemAttributeValue.class);
+        given(itemAttributeValue2.getValue()).willReturn(attributeValue2);
+        given(item2.getAttributesValues()).willReturn(Collections.singletonList(itemAttributeValue2));
 
         final var attributeValues2 = Collections.singletonMap(100L, attributeValue2);
 

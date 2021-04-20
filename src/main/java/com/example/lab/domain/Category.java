@@ -1,6 +1,7 @@
 package com.example.lab.domain;
 
 import com.example.lab.domain.base.BaseEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +18,6 @@ import java.util.List;
  **/
 @Getter
 @Setter
-@SuperBuilder
 @NoArgsConstructor
 @Entity
 @Table(name = "category")
@@ -28,6 +28,6 @@ public class Category extends BaseEntity {
     @Column(name = "category_description")
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "category", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.EAGER)
     private List<CategoryAttribute> attributes;
 }

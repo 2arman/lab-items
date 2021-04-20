@@ -28,13 +28,13 @@ public class CategoryResource {
     private final CategoryService categoryService;
 
     @GetMapping
-    @ApiOperation("Getting All Categories by pagination")
+    @ApiOperation("Getting All Categories")
     public ResponseEntity<CategoriesDto> getCategories() {
         return ResponseEntity.ok(categoryService.getAll());
     }
 
     @PostMapping
-    @ApiOperation("Creating categories with attribute definitions")
+    @ApiOperation("Creating category with attribute definitions")
     public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
          var responseCategoryDto  = categoryService.create(categoryDto);
         return ResponseEntity.created(

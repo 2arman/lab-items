@@ -26,7 +26,7 @@ import javax.validation.Valid;
 @RequestMapping("/api/v1/items")
 @Api("The Lab Items API")
 public class ItemResource {
-    private ItemService itemService;
+    private final ItemService itemService;
 
     @GetMapping
     @ApiOperation("Getting items of a category")

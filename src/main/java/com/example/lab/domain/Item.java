@@ -9,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Arman
@@ -27,12 +26,10 @@ public class Item extends BaseEntity {
     @Column(name = "item_name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_item_category"))
     private Category category;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "item")
-    private List<ItemAttributesValue> attributesValues;
-
-
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "item")
+    private List<ItemAttributeValue> attributesValues;
 }

@@ -44,15 +44,16 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public ItemDto create(ItemDto itemDto) {
         final var category = getCategoryById(itemDto.getCategoryId());
         attributeValidator.validate(category.getAttributes(), itemDto.getAttributeValues());
-        return itemMapper.map(itemRepository.save(itemMapper.map(itemDto)));
+        return itemMapper.mapDto(itemRepository.save(itemMapper.mapEntity(itemDto, category)));
     }
 
     @Override
     public ItemDto getById(Long itemId) {
-        return itemMapper.map(getItemById(itemId));
+        return itemMapper.mapDto(getItemById(itemId));
 
     }
 
@@ -60,9 +61,9 @@ public class ItemServiceImpl implements ItemService {
     @Transactional(propagation = Propagation.REQUIRED)
     public void update(ItemDto itemDto) {
         final var category = getCategoryById(itemDto.getCategoryId());
-        attributeValidator.validate(category.getAttributes(), itemDto.getAttributeValues());
         var item = getItemById(itemDto.getId());
-        item = itemMapper.map(itemDto);
+        attributeValidator.validate(category.getAttributes(), itemDto.getAttributeValues());
+        item = itemMapper.mapAttachedEntity(itemDto, item, category);
         itemRepository.save(item);
     }
 
@@ -74,6 +75,6 @@ public class ItemServiceImpl implements ItemService {
     private Item getItemById(Long itemId) {
         return itemRepository
                 .findById(itemId)
-                .orElseThrow(() -> new ItemNotFoundException("Item could not found"));
+                .orElseThrow(() -> new ItemNotFoundException("Item could not found!"));
     }
 }

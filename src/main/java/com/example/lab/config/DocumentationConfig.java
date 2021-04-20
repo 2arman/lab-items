@@ -20,7 +20,7 @@ public class DocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("The lab categorized items API documentation")
+                .title("The Lab categorized items API documentation")
                 .description("NOTE: This service will be activated on April 17, 2021 \n \n \n " +
                         "Project github link: \n" +
                         "https://github.com/2arman/lab-items")
