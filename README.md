@@ -10,7 +10,7 @@ definitions and each item in those categories should fit into those definitions.
 categories as database tables while attribute definitions are columns. Items are, in this case, the
 rows in those database tables.
 
-####The Task
+#### The Task
 Please create a REST API application using Java which provides the following functionality:
 
 - Creating categories with attribute definitions
