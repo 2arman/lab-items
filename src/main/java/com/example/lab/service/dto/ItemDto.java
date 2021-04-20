@@ -31,6 +31,5 @@ public class ItemDto extends IdentityBaseDto {
     @NotEmpty(message = "name is mandatory field")
     private String name;
 
-    @Size(min = 1)
-    Map<Integer,String> attributeValues;
+    Map<Long,String> attributeValues;
 }

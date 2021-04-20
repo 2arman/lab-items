@@ -13,9 +13,9 @@ import java.util.Map;
  * Time: 11:59 PM
  **/
 @Component
-public class ItemValidation {
+public class AttributeValidator {
 
-    void validate(List<CategoryAttribute> attributes, Map<Long, String> attributeValues) {
+    public void validate(List<CategoryAttribute> attributes, Map<Long, String> attributeValues) {
         attributeValues.forEach(
                 (attributeId, s) -> attributes.stream().filter(categoryAttribute -> categoryAttribute.getId().equals(attributeId))
                         .findAny()
